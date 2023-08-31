@@ -1,16 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from "axios";
 
 export function ShelfItem() {
 
-  const dispatch = useDispatch
+  const [item, setItem] = useState('');
+  const [image, setImage] = useState('');
+  const errors = useSelector((store) => store.errors);
+  const dispatch = useDispatch()
 
+  const handleSubmit =(event)=>{
+    event.preventDefault();
+    console.log("in hSubmit")
+    dispatch({
+      type: 'ADD_TO_SHELF',
+      payload: {
+        item: item,
+        image: image,
+      },
+    });
   
-  console.log("in ShelfItem")
+  }
+  
   return <div>
     <input type='text' placeholder='item'></input>
     <input type='text' placeholder='url'></input>
-    <button className='submit' onClick={ShelfItem}>SUBMIT</button>
+    <button className='submit' onClick={handleSubmit}>SUBMIT</button>
   </div>;
 }
