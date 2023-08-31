@@ -1,6 +1,12 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from "axios";
 
 export function ShelfItem() {
+
+  const dispatch = useDispatch
+
+  
   console.log("in ShelfItem")
   return <div>
     <input type='text' placeholder='item'></input>
