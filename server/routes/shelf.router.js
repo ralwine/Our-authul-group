@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     console.log("/pet GET route");
     console.log("is authenticated?", req.isAuthenticated());
     console.log("user", req.user);
-    let queryText = `SELECT * FROM "pets" WHERE user_id = $1`;
+    let queryText = `SELECT * FROM item WHERE item.user_id = $1`;
     pool
       .query(queryText, [req.user.id])
       .then((result) => {
