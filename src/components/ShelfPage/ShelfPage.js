@@ -1,7 +1,6 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
-import React from 'react';
 import { ShelfItem } from './ShelfItem/ShelfItem';
 
 
