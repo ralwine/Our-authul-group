@@ -8,11 +8,12 @@ const {rejectUnauthenticated} = require('../modules/authentication-middleware.js
  * Get all of the items on the shelf
  */
 router.get('/', (req, res) => {
+  console.log("checking endpoint")
   if (req.isAuthenticated()) {
     console.log("/pet GET route");
     console.log("is authenticated?", req.isAuthenticated());
     console.log("user", req.user);
-    let queryText = `SELECT * FROM item WHERE item.user_id = $1`;
+    let queryText = `SELECT * FROM item WHERE item.user_id = $1;`;
     pool
       .query(queryText, [req.user.id])
       .then((result) => {
