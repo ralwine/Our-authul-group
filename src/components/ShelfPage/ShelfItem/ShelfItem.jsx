@@ -23,8 +23,8 @@ export function ShelfItem() {
   }
   
   return <div>
-    <input type='text' placeholder='item'></input>
-    <input type='text' placeholder='url'></input>
+    <input type='text' placeholder='item' onChange={event=>setItem(event.target.value)}></input>
+    <input type='text' placeholder='url' onChange={event=>setImage(event.target.value)}></input>
     <button className='submit' onClick={handleSubmit}>SUBMIT</button>
   </div>;
 }
