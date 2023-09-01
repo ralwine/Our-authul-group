@@ -1,10 +1,16 @@
+
 import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 
 function* shelfItems(action) {
+    console.log("inside shelfItems")
     try {
-        const items = yield axios.get('/api/item');
+        const config = {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+          };
+        const items = yield axios.get('/api/shelf', config);
         console.log('get all:', items.data);
         yield put({ type: 'SET_ITEMS', payload: items.data });
 
@@ -17,5 +23,7 @@ function* shelfItems(action) {
 function* userShelf() {
     yield takeEvery('FETCH_ITEMS', shelfItems)
 }
+//Just a coment
 
 export default userShelf;
+
