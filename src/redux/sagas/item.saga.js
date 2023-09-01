@@ -17,5 +17,6 @@ function* shelfItems(action) {
 function* userShelf() {
     yield takeEvery('FETCH_ITEMS', shelfItems)
 }
+//Just a coment
 
 export default userShelf;
